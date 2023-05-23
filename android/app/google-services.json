@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "338590444680",
+    "project_id": "sklps-app",
+    "storage_bucket": "sklps-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338590444680:android:2a39088a9b9407e444c33d",
+        "android_client_info": {
+          "package_name": "com.sklpsusa.sklps_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338590444680-rpb233o9p166t0c8t7kdsb95u6vvu1d3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbjj8FSAMwNGxa1P3oc24p-2v6pzzbGIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338590444680-rpb233o9p166t0c8t7kdsb95u6vvu1d3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
