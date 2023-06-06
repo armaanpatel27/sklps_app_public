@@ -29,6 +29,13 @@
             {
               "client_id": "338590444680-rpb233o9p166t0c8t7kdsb95u6vvu1d3.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "338590444680-396qiicedu6j3af61964lffd0buuodq5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sklpsusa.sklpsApp"
+              }
             }
           ]
         }
