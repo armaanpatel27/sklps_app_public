@@ -205,6 +205,7 @@ class _AdminAccountState extends State<AdminAccount> {
       child: Container(
         color: Colors.blue[200],
         child: SafeArea(
+          bottom: false,
           child: SingleChildScrollView(
             child: Container(
               height: SizeConfig.safeBlockVertical * 90.5,

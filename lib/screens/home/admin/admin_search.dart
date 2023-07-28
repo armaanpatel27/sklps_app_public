@@ -38,6 +38,7 @@ class _AdminSearchState extends State<AdminSearch> {
   Widget build(BuildContext context) {
     return Material(
       child: SafeArea(
+        bottom: false ,
         child: Container(
           height: SizeConfig.safeBlockVertical * 90.5,
           width: SizeConfig.safeBlockHorizontal * 100,

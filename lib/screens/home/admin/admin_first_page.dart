@@ -13,7 +13,7 @@ class AdminFirstPage extends StatefulWidget {
 //keeps track of which page is shown
 //if true --> Announcement
 //if false --> Events
-var isAnnouncements = true;
+//var isAnnouncements = true;
 
 class _AdminFirstPageState extends State<AdminFirstPage> {
   @override
@@ -22,6 +22,7 @@ class _AdminFirstPageState extends State<AdminFirstPage> {
       child: Container(
         color: Colors.blue[500],
         child: SafeArea(
+          bottom: false,
           child: Container(
             height: SizeConfig.safeBlockVertical * 100,
             width: SizeConfig.safeBlockHorizontal * 100,
@@ -35,20 +36,20 @@ class _AdminFirstPageState extends State<AdminFirstPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     TextButton(
-                        onPressed: (){
-                          setState(() {
+                       onPressed: (){
+                          /*setState(() {
                             isAnnouncements = true;
                             print(isAnnouncements);
-                          });
+                          }); */
                         },
                         child: TextDefault(
                           text: "Announcements",
-                          color: isAnnouncements ? Colors.white : Colors.black,
+                          color: Colors.white,// isAnnouncements ? Colors.white : Colors.black,
                           sizeMultiplier: 3.5,
-                          bold: isAnnouncements ? FontWeight.bold : FontWeight.normal,
+                          bold: FontWeight.bold,//isAnnouncements ? FontWeight.bold : FontWeight.normal,
                         )
                     ),
-                    TextButton(
+                    /*TextButton(
                         onPressed: (){
                           setState(() {
                             isAnnouncements = false;
@@ -61,11 +62,11 @@ class _AdminFirstPageState extends State<AdminFirstPage> {
                           sizeMultiplier: 3.5,
                           bold: isAnnouncements ? FontWeight.normal : FontWeight.bold,
                         )
-                    ),
+                    ),*/
                   ],
                 ),
               ),
-              body: isAnnouncements ? AdminAnnouncements() : AdminEvents(),
+              body: AdminAnnouncements(),
             ),
           ),
         ),

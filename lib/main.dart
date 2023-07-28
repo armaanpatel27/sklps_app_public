@@ -37,9 +37,11 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
 
-        //On initialization, app directly navigates to Wrapper which shows different screen
+
+        //Onz initialization, app directly navigates to Wrapper which shows different screen
         //based on whether user is authenticated
         home: Wrapper(),
+        debugShowCheckedModeBanner: false,
 
       ),
     );

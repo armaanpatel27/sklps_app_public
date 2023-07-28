@@ -109,6 +109,7 @@ class _SendEmailState extends State<SendEmail> {
     } else {
       return Material(
         child: SafeArea(
+          bottom: false,
             child: Container(
               height: SizeConfig.safeBlockVertical * 100,
               width: SizeConfig.safeBlockHorizontal * 100,

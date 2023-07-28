@@ -383,164 +383,168 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
             ),
           ))
         : Material(
-            child: SingleChildScrollView(
-              child: Container(
-                height: SizeConfig.safeBlockVertical * 85,
-                width: SizeConfig.safeBlockHorizontal * 100,
-                //build container for each item in announcementList
-                child: Stack(
-                  children: [
-                    //creates a container for each announcement
-                    ListView.separated(
-                      //SizedBox separates each item build by ListView
-                      separatorBuilder: (context, index) => Column(
-                        children: [
-                          Divider(
-                            color: Colors.black,
-                            thickness: 1.0,
-                          ),
-                          SizedBox(
-                            height: SizeConfig.safeBlockVertical * 1,
-                          )
-                        ],
-                      ),
-                      itemCount: announcementList.length,
-                      itemBuilder: (context, index) => Padding(
-                        padding: EdgeInsets.fromLTRB(
-                            SizeConfig.safeBlockVertical * 2,
-                            SizeConfig.safeBlockVertical * 2,
-                            SizeConfig.safeBlockVertical * 2,
-                            SizeConfig.safeBlockVertical * 2),
-                        child: Container(
-                          child: Column(
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(),
-                                  borderRadius: BorderRadius.all(Radius.zero),
-                                  color: Colors.blue[100],
-                                ),
-                                padding: EdgeInsets.fromLTRB(
-                                    SizeConfig.safeBlockHorizontal * 2,
-                                    SizeConfig.safeBlockVertical * 1,
-                                    SizeConfig.safeBlockHorizontal * 2,
-                                    SizeConfig.safeBlockVertical * 0),
-                                child: Column(
-                                  children: [
-                                    //name of person who created it
-                                    Align(
-                                      alignment: Alignment.topLeft,
-                                      child: TextDefault(
-                                        text: announcementList[index]["name"],
-                                        sizeMultiplier: 2.5,
-                                        color: Colors.black,
-                                        bold: FontWeight.w600,
-                                        decoration: TextDecoration.underline,
-                                      ),
-                                    ),
-                                    //displays message
-                                    Align(
-                                      alignment: Alignment.bottomLeft,
-                                      child: TextDefault(
-                                        text: announcementList[index]
-                                            ["content"],
-                                        sizeMultiplier: 2,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        //refreshes state and retrieves data from announcements
-                                        //IconButton(onPressed: (){initializeAnnouncementList();}, icon: Icon(Icons.refresh), iconSize: SizeConfig.safeBlockVertical * 3,),
-                                        //edit or delete announcement options
-                                        PopupMenuButton(
-                                          icon: Icon(Icons.menu),
-                                          iconSize:
-                                              SizeConfig.safeBlockVertical * 3,
-                                          itemBuilder: (context) => [
-                                            //User requests to change their email --> opens dialogBox for new value
-                                            PopupMenuItem(
-                                              child: TextDefault(
-                                                text: "Edit",
-                                                sizeMultiplier: 2,
-                                                color: Colors.black,
-                                              ),
-                                              onTap: () {
-                                                Future.delayed(
-                                                    const Duration(seconds: 0),
-                                                    () {
-                                                  showEditDialogBox(
-                                                    "Please edit content of announcement here:",
-                                                    index,
-                                                  );
-                                                });
-                                              },
-                                            ),
-                                            PopupMenuItem(
-                                              child: TextDefault(
-                                                text: "Delete",
-                                                sizeMultiplier: 2,
-                                                color: Colors.black,
-                                              ),
-                                              onTap: () {
-                                                Future.delayed(
-                                                    const Duration(seconds: 0),
-                                                    () {
-                                                  showDeleteDialogBox(
-                                                    "Are you sure you want to delete this announcement?",
-                                                    index,
-                                                  );
-                                                });
-                                              },
-                                            ),
-                                          ],
+            child: SafeArea(
+              bottom: false,
+              child: SingleChildScrollView(
+                child: Container(
+                  color: Colors.white,
+                  height: SizeConfig.safeBlockVertical * 85,
+                  width: SizeConfig.safeBlockHorizontal * 100,
+                  //build container for each item in announcementList
+                  child: Stack(
+                    children: [
+                      //creates a container for each announcement
+                      ListView.separated(
+                        //SizedBox separates each item build by ListView
+                        separatorBuilder: (context, index) => Column(
+                          children: [
+                            Divider(
+                              color: Colors.black,
+                              thickness: 1.0,
+                            ),
+                            SizedBox(
+                              height: SizeConfig.safeBlockVertical * 1,
+                            )
+                          ],
+                        ),
+                        itemCount: announcementList.length,
+                        itemBuilder: (context, index) => Padding(
+                          padding: EdgeInsets.fromLTRB(
+                              SizeConfig.safeBlockVertical * 2,
+                              SizeConfig.safeBlockVertical * 2,
+                              SizeConfig.safeBlockVertical * 2,
+                              SizeConfig.safeBlockVertical * 2),
+                          child: Container(
+                            child: Column(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(),
+                                    borderRadius: BorderRadius.all(Radius.zero),
+                                    color: Colors.blue[100],
+                                  ),
+                                  padding: EdgeInsets.fromLTRB(
+                                      SizeConfig.safeBlockHorizontal * 2,
+                                      SizeConfig.safeBlockVertical * 1,
+                                      SizeConfig.safeBlockHorizontal * 2,
+                                      SizeConfig.safeBlockVertical * 0),
+                                  child: Column(
+                                    children: [
+                                      //name of person who created it
+                                      Align(
+                                        alignment: Alignment.topLeft,
+                                        child: TextDefault(
+                                          text: announcementList[index]["name"],
+                                          sizeMultiplier: 2.5,
+                                          color: Colors.black,
+                                          bold: FontWeight.w600,
+                                          decoration: TextDecoration.underline,
                                         ),
-                                      ],
-                                    ),
-                                  ],
+                                      ),
+                                      //displays message
+                                      Align(
+                                        alignment: Alignment.bottomLeft,
+                                        child: TextDefault(
+                                          text: announcementList[index]
+                                              ["content"],
+                                          sizeMultiplier: 2,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children: [
+                                          //refreshes state and retrieves data from announcements
+                                          //IconButton(onPressed: (){initializeAnnouncementList();}, icon: Icon(Icons.refresh), iconSize: SizeConfig.safeBlockVertical * 3,),
+                                          //edit or delete announcement options
+                                          PopupMenuButton(
+                                            icon: Icon(Icons.menu),
+                                            iconSize:
+                                                SizeConfig.safeBlockVertical * 3,
+                                            itemBuilder: (context) => [
+                                              //User requests to change their email --> opens dialogBox for new value
+                                              PopupMenuItem(
+                                                child: TextDefault(
+                                                  text: "Edit",
+                                                  sizeMultiplier: 2,
+                                                  color: Colors.black,
+                                                ),
+                                                onTap: () {
+                                                  Future.delayed(
+                                                      const Duration(seconds: 0),
+                                                      () {
+                                                    showEditDialogBox(
+                                                      "Please edit content of announcement here:",
+                                                      index,
+                                                    );
+                                                  });
+                                                },
+                                              ),
+                                              PopupMenuItem(
+                                                child: TextDefault(
+                                                  text: "Delete",
+                                                  sizeMultiplier: 2,
+                                                  color: Colors.black,
+                                                ),
+                                                onTap: () {
+                                                  Future.delayed(
+                                                      const Duration(seconds: 0),
+                                                      () {
+                                                    showDeleteDialogBox(
+                                                      "Are you sure you want to delete this announcement?",
+                                                      index,
+                                                    );
+                                                  });
+                                                },
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              //shows date and time that announcement was posted
-                              Align(
-                                alignment: Alignment.bottomRight,
-                                child: TextDefault(
-                                  text: announcementHelper.timestampToString(
-                                      announcementList[index]["timestamp"]),
-                                  sizeMultiplier: 1.8,
-                                  color: Colors.black,
+                                //shows date and time that announcement was posted
+                                Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: TextDefault(
+                                    text: announcementHelper.timestampToString(
+                                        announcementList[index]["timestamp"]),
+                                    sizeMultiplier: 1.8,
+                                    color: Colors.black,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    //button to post a new announcement
-                    Positioned(
-                      top:SizeConfig.safeBlockVertical * 71,
-                      left: SizeConfig.safeBlockHorizontal * 82,
-                      child: SizedBox(
-                        height: SizeConfig.safeBlockVertical * 10,
-                        child: FloatingActionButton(
-                          backgroundColor: Colors.orange[600],
-                          onPressed: () {
-                            Future.delayed(
-                                const Duration(seconds: 0),
-                                    () {
-                                  showAddDialogBox(
-                                    "Enter text for your new announcement:",
-                                  );
-                                });
-                          },
-                          child: Icon(
-                            Icons.add,
-                            size: SizeConfig.safeBlockVertical * 6,
-                            color: Colors.white,
-                          )
-                          ),
-                      )),
-                  ],
+                      //button to post a new announcement
+                      Positioned(
+                        top:SizeConfig.safeBlockVertical * 71,
+                        left: SizeConfig.safeBlockHorizontal * 82,
+                        child: SizedBox(
+                          height: SizeConfig.safeBlockVertical * 10,
+                          child: FloatingActionButton(
+                            backgroundColor: Colors.orange[600],
+                            onPressed: () {
+                              Future.delayed(
+                                  const Duration(seconds: 0),
+                                      () {
+                                    showAddDialogBox(
+                                      "Enter text for your new announcement:",
+                                    );
+                                  });
+                            },
+                            child: Icon(
+                              Icons.add,
+                              size: SizeConfig.safeBlockVertical * 6,
+                              color: Colors.white,
+                            )
+                            ),
+                        )),
+                    ],
+                  ),
                 ),
               ),
             ),

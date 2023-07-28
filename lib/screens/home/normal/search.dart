@@ -20,6 +20,7 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return Material(
       child: SafeArea(
+        bottom: false,
         child: Container(
          height: SizeConfig.safeBlockVertical * 90.5,
           width: SizeConfig.safeBlockHorizontal * 100,
