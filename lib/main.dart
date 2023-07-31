@@ -35,14 +35,20 @@ class MyApp extends StatelessWidget {
         ),
 
       ],
-      child: MaterialApp(
+      //unfocus keyboard when tap anywhere else
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(new FocusNode());
+        },
+        child: MaterialApp(
 
 
-        //Onz initialization, app directly navigates to Wrapper which shows different screen
-        //based on whether user is authenticated
-        home: Wrapper(),
-        debugShowCheckedModeBanner: false,
+          //On initialization, app directly navigates to Wrapper which shows different screen
+          //based on whether user is authenticated
+          home: Wrapper(),
+          debugShowCheckedModeBanner: false,
 
+        ),
       ),
     );
   }
