@@ -186,7 +186,7 @@ class _AdminAccountState extends State<AdminAccount> {
       {"title": "Street Address", "subtitle": "${UserData.address}"},
       {"title" : "City", "subtitle": "${UserData.city}"},
       {"title" : "State", "subtitle": "${UserData.state}"},
-      {"title" : "Gaam", "subtitle": "${UserData.zip}"},
+      {"title" : "Zip", "subtitle": "${UserData.zip}"},
       {"title": "Father", "subtitle": "not yet"},
       {"title": "Mother", "subtitle": "not yet"},
       {"title": "Spouse", "subtitle": UserData.spouse},
