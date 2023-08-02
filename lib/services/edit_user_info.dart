@@ -37,8 +37,8 @@ class EditInfo {
   String initialName = UserData.name;
   String initialEmail =UserData.email;
   String initialPhoneNumber = UserData.phoneNumber;
-  String initialFather = "";//todo
-  String initialMother = "";//todo
+  String initialFather = UserData.father;
+  String initialMother = UserData.mother;
   String initialSpouse = UserData.spouse;
   String initialChild1 = UserData.child1;
   String initialChild2 = UserData.child2;
@@ -78,12 +78,12 @@ class EditInfo {
         UserData.phoneNumber = newPhoneNumber.trim();
       }
       if(newFather != "notUsed" && newFather != initialFather){
-        //todo await accessData.updateField("membersPublic", docID, "father", newFather.trim());
-        //todo UserData.father = newFather.trim();
+        await accessData.updateField("membersPublic", docID, "father", newFather.trim());
+        UserData.father = newFather.trim();
       }
       if(newMother != "notUsed" && newMother != initialMother){
-        //todo await accessData.updateField("membersPublic", docID, "mother", newMother.trim());
-        //todo UserData.mother = newMother.trim();
+        await accessData.updateField("membersPublic", docID, "mother", newMother.trim());
+        UserData.mother = newMother.trim();
       }
       if(newSpouse != "notUsed" && newSpouse != initialSpouse){
         await accessData.updateField("membersPublic", docID, "spouse", newSpouse.trim());

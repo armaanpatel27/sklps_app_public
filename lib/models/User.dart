@@ -21,8 +21,8 @@ class UserData{
   static String state = "";
   static String zip = "";
   static String spouse = "";
-  //static String father
-  //static String mother = "";
+  static String father = "";
+  static String mother = "";
   static String child1 = "";
   static String child2 = "";
   static String child3 = "";
@@ -58,6 +58,8 @@ class UserData{
     child4 = mapData["child4"];
     child5 = mapData["child5"];
     accountExists = mapData["accountExists"];
+    father = mapData["father"];
+    mother = mapData["mother"];
   }
   static void resetUserData(){
     uid  = "";
@@ -77,6 +79,8 @@ class UserData{
     child4  = "";
     child5  = "";
     accountExists = false;
+    father = "";
+    mother = "";
   }
   static void setEmail(String value) {
     email = value;

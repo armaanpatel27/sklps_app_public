@@ -83,7 +83,7 @@ class AccessData {
       //map of all fields and their values for new document
       final data = {"address" : "", "child1" : "", "child2": "", "child3":"", "child4": "", "child5" : "",
         "city": "", "email": email, "gaam": "", "name": name, "phoneNumber": "", "spouse":"", "spouseEmail" : "", "state": "","zip": "",
-        "accountExists": false, "isAdmin" : false};
+        "accountExists": false, "isAdmin" : false, "father": "", "mother": "",};
       //creates a new FireStore Document with auto-generated ID
       await _firestoreRef.collection("membersPublic").add(data);
     } else {

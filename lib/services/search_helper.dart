@@ -81,12 +81,12 @@ class SearchHelper {
       UserData.phoneNumber = newPhoneNumber.trim();
     }
     if(newFather != "notUsed" && newFather != "${returnedUsersMap[currentIndex]["father"]}"){
-      //todo await accessData.updateField("membersPublic", docID, "father", newFather.trim());
-      //todo UserData.father = newFather.trim();
+      await accessData.updateField("membersPublic", docID, "father", newFather.trim());
+      UserData.father = newFather.trim();
     }
     if(newMother != "notUsed" && newMother != "${returnedUsersMap[currentIndex]["mother"]}"){
-      //todo await accessData.updateField("membersPublic", docID, "mother", newMother.trim());
-      //todo UserData.mother = newMother.trim();
+      await accessData.updateField("membersPublic", docID, "mother", newMother.trim());
+      UserData.mother = newMother.trim();
     }
     if(newSpouse != "notUsed" && newSpouse != "${returnedUsersMap[currentIndex]["spouse"]}"){
       await accessData.updateField("membersPublic", docID, "spouse", newSpouse.trim());
@@ -136,8 +136,8 @@ class SearchHelper {
     String initialName = "${returnedUsersMap[index]["name"]}";
     String initialEmail ="${returnedUsersMap[index]["email"]}";
     String initialPhoneNumber = "${returnedUsersMap[index]["phoneNumber"]}";
-    String initialFather = "";//todo
-    String initialMother = "";//todo
+    String initialFather = "${returnedUsersMap[index]["father"]}";
+    String initialMother = "${returnedUsersMap[index]["mother"]}";
     String initialSpouse = "${returnedUsersMap[index]["spouse"]}";
     String initialChild1 = "${returnedUsersMap[index]["child1"]}";
     String initialChild2 = "${returnedUsersMap[index]["child2"]}";
@@ -588,11 +588,11 @@ class SearchHelper {
                                 children: [
                                   TableRowColumns(
                                     text1: "Father",
-                                    text2: "",
+                                    text2: returnedUsersMap[index]["father"],
                                   ),
                                   TableRowColumns(
                                     text1: "Mother",
-                                    text2: "",
+                                    text2: returnedUsersMap[index]["mother"],
                                   ),
                                 ],
                               ),
