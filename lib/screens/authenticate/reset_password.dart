@@ -57,6 +57,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   Widget build(BuildContext context) {
     return Material(
       child: SafeArea(
+        bottom: false,
         child: Container(
           height: SizeConfig.safeBlockVertical * 100,
           width: SizeConfig.safeBlockHorizontal * 100,

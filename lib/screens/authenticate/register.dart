@@ -55,6 +55,7 @@ class _RegisterState extends State<Register> {
 
     return Material(
       child: SafeArea(
+        bottom: false,
         child: Container(
           height: SizeConfig.safeBlockVertical * 100,
           width: SizeConfig.safeBlockHorizontal * 100,

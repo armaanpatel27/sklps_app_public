@@ -47,58 +47,62 @@ class _AnnouncementsState extends State<Announcements> {
   @override
   Widget build(BuildContext context) {
     return isError ? Center(child: Container(child: TextDefault(text: "Error #1020", sizeMultiplier: 5, color: Colors.black,),)) : Material(
-      child: Container(
-        height: SizeConfig.safeBlockVertical * 92,
-        width: SizeConfig.safeBlockHorizontal * 100,
-        //build container for each item in announcementList
-        child: ListView.separated(
-          //SizedBox separates each item build by ListView
-          separatorBuilder: (context, index) =>Column(children: [Divider(color: Colors.black, thickness: 1.0,),SizedBox(height: SizeConfig.safeBlockVertical * 1,)],),
-          itemCount: announcementList.length,
-          itemBuilder: (context, index) => Padding(
-            padding: EdgeInsets.fromLTRB(SizeConfig.safeBlockVertical * 2, SizeConfig.safeBlockVertical * 2, SizeConfig.safeBlockVertical * 2, SizeConfig.safeBlockVertical * 2),
-            child: Container(
-              child: Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(),
-                      borderRadius: BorderRadius.all(Radius.zero),
-                      color: Colors.blue[100],
-                    ),
-                    padding: EdgeInsets.fromLTRB(SizeConfig.safeBlockHorizontal * 2, SizeConfig.safeBlockVertical * 1, SizeConfig.safeBlockHorizontal * 2, SizeConfig.safeBlockVertical * 1),
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: TextDefault(
-                            text: announcementList[index]["name"],
-                            sizeMultiplier: 2.5,
-                            color: Colors.black,
-                            bold: FontWeight.w600,
-                            decoration: TextDecoration.underline,
+      child: SafeArea(
+        bottom: false,
+        child: Container(
+          color: Colors.white,
+          height: SizeConfig.safeBlockVertical * 92,
+          width: SizeConfig.safeBlockHorizontal * 100,
+          //build container for each item in announcementList
+          child: ListView.separated(
+            //SizedBox separates each item build by ListView
+            separatorBuilder: (context, index) =>Column(children: [Divider(color: Colors.black, thickness: 1.0,),SizedBox(height: SizeConfig.safeBlockVertical * 1,)],),
+            itemCount: announcementList.length,
+            itemBuilder: (context, index) => Padding(
+              padding: EdgeInsets.fromLTRB(SizeConfig.safeBlockVertical * 2, SizeConfig.safeBlockVertical * 2, SizeConfig.safeBlockVertical * 2, SizeConfig.safeBlockVertical * 2),
+              child: Container(
+                child: Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(),
+                        borderRadius: BorderRadius.all(Radius.zero),
+                        color: Colors.blue[100],
+                      ),
+                      padding: EdgeInsets.fromLTRB(SizeConfig.safeBlockHorizontal * 2, SizeConfig.safeBlockVertical * 1, SizeConfig.safeBlockHorizontal * 2, SizeConfig.safeBlockVertical * 1),
+                      child: Column(
+                        children: [
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: TextDefault(
+                              text: announcementList[index]["name"],
+                              sizeMultiplier: 2.5,
+                              color: Colors.black,
+                              bold: FontWeight.w600,
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
-                        ),
-                        Align(
-                          alignment: Alignment.bottomLeft,
-                          child: TextDefault(
-                            text: announcementList[index]["content"],
-                            sizeMultiplier: 2,
-                            color: Colors.black,
+                          Align(
+                            alignment: Alignment.bottomLeft,
+                            child: TextDefault(
+                              text: announcementList[index]["content"],
+                              sizeMultiplier: 2,
+                              color: Colors.black,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: TextDefault(
-                      text: announcementHelper.timestampToString(announcementList[index]["timestamp"]),
-                      sizeMultiplier: 1.8,
-                      color: Colors.black,
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: TextDefault(
+                        text: announcementHelper.timestampToString(announcementList[index]["timestamp"]),
+                        sizeMultiplier: 1.8,
+                        color: Colors.black,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

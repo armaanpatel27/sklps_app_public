@@ -5,7 +5,9 @@ import 'package:sklps_app/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:sklps_app/services/wrapper.dart';
 import 'package:flutter/services.dart';
-import 'package:sklps_app/shared/size_config.dart';
+import 'firebase_options.dart';
+
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,7 +16,7 @@ void main() async {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
   runApp(const MyApp());
 }
 
@@ -33,12 +35,20 @@ class MyApp extends StatelessWidget {
         ),
 
       ],
-      child: MaterialApp(
+      //unfocus keyboard when tap anywhere else
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(new FocusNode());
+        },
+        child: MaterialApp(
 
-        //On initialization, app directly navigates to Wrapper which shows different screen
-        //based on whether user is authenticated
-        home: Wrapper(),
 
+          //On initialization, app directly navigates to Wrapper which shows different screen
+          //based on whether user is authenticated
+          home: Wrapper(),
+          debugShowCheckedModeBanner: false,
+
+        ),
       ),
     );
   }

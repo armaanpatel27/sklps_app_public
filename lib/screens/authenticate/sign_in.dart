@@ -58,6 +58,7 @@ class _SignInState extends State<SignIn> {
 
     return Material(
       child: SafeArea(
+        bottom: false,
         //Padding wraps around entire screen
         child: Container(
           height: SizeConfig.safeBlockVertical * 100,

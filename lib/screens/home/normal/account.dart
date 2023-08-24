@@ -194,9 +194,9 @@ class _AccountState extends State<Account> {
       {"title": "Street Address", "subtitle": "${UserData.address}"},
       {"title" : "City", "subtitle": "${UserData.city}"},
       {"title" : "State", "subtitle": "${UserData.state}"},
-      {"title" : "Gaam", "subtitle": "${UserData.zip}"},
-      {"title": "Father", "subtitle": "not yet"},
-      {"title": "Mother", "subtitle": "not yet"},
+      {"title" : "Zip", "subtitle": "${UserData.zip}"},
+      {"title": "Father", "subtitle": "${UserData.father}"},
+      {"title": "Mother", "subtitle": "${UserData.mother}"},
       {"title": "Spouse", "subtitle": UserData.spouse},
       {"title": "Child1", "subtitle": "${UserData.child1}"},
       {"title" : "Child2", "subtitle": "${UserData.child2}"},
@@ -212,6 +212,7 @@ class _AccountState extends State<Account> {
       child: Container(
         color: Colors.blue[200],
         child: SafeArea(
+          bottom: false,
           child: SingleChildScrollView(
             child: Container(
               height: SizeConfig.safeBlockVertical * 90.5,

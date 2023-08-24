@@ -42,43 +42,49 @@ class _AdminHomeWrapperState extends State<AdminHomeWrapper> {
         index: currentIndex,
         children: pages,
       ),
-      bottomNavigationBar: SizedBox(
-        height: SizeConfig.safeBlockVertical * 9.5,
-        child: BottomNavigationBar(
-          backgroundColor: Colors.blue,
-          currentIndex: currentIndex,
-          //changes current index depending on which item is tapped
-          onTap: onTap,
-          //displays clickable icons that can be used to navigate between pages
-          items: const <BottomNavigationBarItem>[
-            //Admin Search Page
-            BottomNavigationBarItem(
-              icon: Icon(Icons.announcement),
-              label: "Announcements",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: "Search",
-            ),
-            //Admin Account Page
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: "Account",
-            ),
-          ],
+      bottomNavigationBar: Container(
+        color: Colors.blue,
+        child: SafeArea(
+          child: SizedBox(
+            height: SizeConfig.safeBlockVertical * 9.5,
+            child: BottomNavigationBar(
+              elevation: 0,
+              backgroundColor: Colors.blue,
+              currentIndex: currentIndex,
+              //changes current index depending on which item is tapped
+              onTap: onTap,
+              //displays clickable icons that can be used to navigate between pages
+              items: const <BottomNavigationBarItem>[
+                //Admin Search Page
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.announcement),
+                  label: "Announcements",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.search),
+                  label: "Search",
+                ),
+                //Admin Account Page
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: "Account",
+                ),
+              ],
 
-          //Customizing icons and their behavior
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          selectedIconTheme: IconThemeData(
-            color: Colors.black,
-            size: SizeConfig.safeBlockVertical * 4.0,
-          ),
-          unselectedIconTheme: IconThemeData(
-            color: Colors.black26,
-            size: SizeConfig.safeBlockVertical * 3.2,
-          ),
+              //Customizing icons and their behavior
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              selectedIconTheme: IconThemeData(
+                color: Colors.black,
+                size: SizeConfig.safeBlockVertical * 4.0,
+              ),
+              unselectedIconTheme: IconThemeData(
+                color: Colors.black26,
+                size: SizeConfig.safeBlockVertical * 3.2,
+              ),
 
+            ),
+          ),
         ),
       ),
     );

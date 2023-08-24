@@ -14,7 +14,7 @@ class FirstPage extends StatefulWidget {
 //keeps track of which page is shown
 //if true --> Announcement
 //if false --> Events
-var isAnnouncements = true;
+//var isAnnouncements = true;
 
 class _FirstPageState extends State<FirstPage> {
   @override
@@ -23,6 +23,7 @@ class _FirstPageState extends State<FirstPage> {
       child: Container(
         color: Colors.blue[500],
         child: SafeArea(
+          bottom: false,
           child: Container(
             height: SizeConfig.safeBlockVertical * 100,
             width: SizeConfig.safeBlockHorizontal * 100,
@@ -37,19 +38,19 @@ class _FirstPageState extends State<FirstPage> {
                   children: [
                     TextButton(
                         onPressed: (){
-                          setState(() {
+                          /*setState(() {
                             isAnnouncements = true;
                             print(isAnnouncements);
-                          });
+                          });*/
                         },
                         child: TextDefault(
                           text: "Announcements",
-                          color: isAnnouncements ? Colors.white : Colors.black,
+                          color: Colors.white,//isAnnouncements ? Colors.white : Colors.black,
                           sizeMultiplier: 3.5,
-                          bold: isAnnouncements ? FontWeight.bold : FontWeight.normal,
+                          bold: FontWeight.bold,//isAnnouncements ? FontWeight.bold : FontWeight.normal,
                         )
                     ),
-                    TextButton(
+                    /*TextButton(
                         onPressed: (){
                           setState(() {
                             isAnnouncements = false;
@@ -62,11 +63,11 @@ class _FirstPageState extends State<FirstPage> {
                           sizeMultiplier: 3.5,
                           bold: isAnnouncements ? FontWeight.normal : FontWeight.bold,
                         )
-                    ),
+                    ), */
                   ],
                 ),
               ),
-              body: isAnnouncements ? Announcements() : Events(),
+              body: Announcements(),//isAnnouncements ? Announcements() : Events(),
             ),
           ),
         ),

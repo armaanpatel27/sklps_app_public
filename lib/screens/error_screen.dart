@@ -18,6 +18,7 @@ class _ErrorScreenState extends State<ErrorScreen> {
     final _auth = AuthService();
     return Material(
       child: SafeArea(
+        bottom: false,
         child: Container(
           height: SizeConfig.safeBlockVertical * 100,
           width: SizeConfig.safeBlockHorizontal * 100,

@@ -49,6 +49,7 @@ class _SupportState extends State<Support> {
       child: Container(
         color: Colors.blue,
         child: SafeArea(
+          bottom: false,
           child: Container(
             color: Colors.white,
             height: SizeConfig.safeBlockVertical * 100,
